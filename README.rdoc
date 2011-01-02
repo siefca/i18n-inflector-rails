@@ -1,0 +1,108 @@
+= Simple I18n Inflector for Rails (Action Pack)
+
+<b>rails-i18n-inflector version <tt>1.0</tt></b> (<b><tt>Sexparty</tt></b>)
+
+
+
+* https://rubygems.org/gems/rails-i18n-inflector
+* https://github.com/siefca/rails-i18n-inflector/tree
+* mailto:pw@gnu.org
+
+== Description
+
+This library contains bindings for the I18n Inflector module for Ruby's I18n.
+It overwrites the TranslationHelper's translate method so it will
+interpolate additional inflection tokens present in translations.
+These tokens may appear in *patterns* which are contained within
+<tt>@{</tt> and <tt>}</tt> symbols.
+
+You can choose different kinds (gender, title, person, time, author, etc.)
+of tokens to group them in a meaningful, semantical sets. That means you can
+apply Inflector to do simple inflection by a gender or a person, when some
+language requires it.
+
+To achieve similar functionality lambdas can be used but there might be
+some areas of appliance that including proc objects in translations
+is prohibited.
+
+If you have a troop of happy translators that shouldn't have the
+ability to execute any code yet you need some simple inflection
+then you can make use of this module.
+
+== Requirements
+
+* i18n[https://rubygems.org/gems/i18n]
+* actionpack[https://rubygems.org/gems/actionpack]
+* rake[https://rubygems.org/gems/rake]
+* rubygems[http://docs.rubygems.org/]
+
+== Download
+
+==== Source code
+
+* https://github.com/siefca/rails-i18n-inflector/tree
+* <tt>git clone git://github.com/siefca/rails-i18n-inflector.git</tt>
+
+==== Gem
+
+* https://rubygems.org/gems/rails-i18n-inflector
+
+== Installation
+
+* <tt>sudo gem install rails-i18n-inflector</tt>
+
+== Synopsis
+
+  require 'rails-i18n-inflector'
+  i18n.translate('welcome')
+
+Detailed example:
+
+  I18n.locale = :en
+  I18n.backend.store_translations 'en', :i18n => { :inflections => {
+                                                     :gender => {
+                                                       :f => 'female',
+                                                       :m => 'male',
+                                                       :n => 'neuter',
+                                                       :default => 'n' }}}
+   
+   I18n.backend.store_translations 'en', 'welcome' => 'Dear @{f:Lady|m:Sir|n:You|All}'
+  
+   I18n.t('welcome')
+   # => "Dear You"
+   
+   I18n.t('welcome', :gender => :male)
+   # => "Dear Sir"
+   
+   I18n.t('welcome', :gender => :unknown)
+   # => "Dear All"
+   
+   I18n.t('welcome', :gender => nil)
+   # => "Dear All"
+
+== Tests
+
+You can run tests both with
+
+* <tt>rake test</tt> or just <tt>rake</tt>
+* run a test file directly, e.g. <tt>ruby -Ilib -Itest test/inflector_test.rb</tt>
+
+== More information
+
+See {whole documentation}[http://rubydoc.info/gems/rails-i18n-inflector/] for more info about usage.
+
+See {I18n::Backend::Inflector::Rails} module documentation for detailed information.
+
+== License
+
+Copyright (c) 2010 by Paweł Wilk.
+
+rails-i18n-inflector is copyrighted software owned by Paweł Wilk (pw@gnu.org).
+You may redistribute and/or modify this software as long as you
+comply with either the terms of the LGPL (see {file:LGPL-LICENSE}),
+or Ruby's license (see {file:COPYING}).
+
+THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS
+OR IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+FOR A PARTICULAR PURPOSE.
