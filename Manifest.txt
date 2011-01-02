@@ -1,0 +1,14 @@
+.yardopts
+Gemfile
+LGPL-LICENSE
+README.rdoc
+Rakefile
+docs/COPYING
+docs/HISTORY
+docs/LEGAL
+docs/LGPL-LICENSE
+docs/rdoc.css
+lib/rails-i18n-inflector.rb
+lib/rails-i18n-inflector/errors.rb
+lib/rails-i18n-inflector/inflector.rb
+test/test_helper.rb
