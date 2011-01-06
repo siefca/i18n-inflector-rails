@@ -14,7 +14,7 @@ module I18n
         attr_reader :assignment
         def initialize(assignment)
           @assignment = assignment
-          super "The given assignment of an inflection method to a kind is invalid: #{assignment}"
+          super "The given assignment is invalid: #{assignment}"
         end
       end
       
