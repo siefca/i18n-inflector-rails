@@ -44,8 +44,8 @@ Hoe.spec 'rails-i18n-inflector' do
   self.history_file    = 'docs/HISTORY'
   
   extra_deps          << ['i18n-inflector',   '>= 1.0.6'] <<
-                         ['actionpack',       '>= 3.0.0']
-  extra_dev_deps      << ['test_declarative', '>= 0.0.4'] <<
+                         ['railties',         '>= 3.0.0']
+  extra_dev_deps      << ['rspec-rails',      '>= 2.3.0'] <<
                          ['yard',             '>= 0.6.4'] <<
                          ['bundler',          '>= 1.0.7'] <<
                          ['hoe-bundler',      '>= 1.0.0']

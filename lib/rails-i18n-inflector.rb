@@ -1,18 +1,24 @@
 # encoding: utf-8
 
 require 'i18n-inflector'
-require 'rails-i18n-inflector/errors.rb'
-require 'rails-i18n-inflector/inflector.rb'
+require 'rails-i18n-inflector/errors'
+require 'rails-i18n-inflector/inflector'
 
 require 'action_controller' if not defined?(ActionController::Base)
-require 'action_view'       if not defined?(ActionView::Base)
 
-# Add methods to assign attribute readers to inflection kinds
-ActionController::Base.send(:extend,  I18n::Inflector::Rails::ClassMethods)
-ActionController::Base.send(:include, I18n::Inflector::Rails::InstanceMethods)
+if defined?(Rails) && Rails::VERSION::MAJOR == 3
 
-# Alternate translate() and t() in common contexts.
-ActionView::Helpers::TranslationHelper.send(:include, I18n::Inflector::Rails::Translate)
+  require 'rails-i18n-inflector/railtie'
+
+else
+
+  #require 'action_view' if not defined?(ActionView::Base)
+
+  ActionController::Base.send(:extend,  I18n::Inflector::Rails::ClassMethods)
+  ActionController::Base.send(:include, I18n::Inflector::Rails::InstanceMethods)
+  ActionController::Base.send(:include, I18n::Inflector::Rails::InflectedTranslate)
+
+end
 
 module I18n
   module Backend
@@ -38,4 +44,3 @@ module I18n
     end
   end
 end
-
