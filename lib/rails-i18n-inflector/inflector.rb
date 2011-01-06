@@ -16,9 +16,9 @@ module I18n
       # This module contains instance methods for ActionController.
       module InstanceMethods
   
-        # This method calls the class method {.i18n_ivars}
-        def i18n_ivars
-          self.class.i18n_ivars
+        # This method calls the class method {I18n::Inflector::Rails::ClassMethods#i18n_inflector_methods}
+        def i18n_inflector_methods
+          self.class.i18n_inflector_methods
         end
   
       end # instance methods
@@ -26,17 +26,17 @@ module I18n
       # This module contains class methods for ActionController.
       module ClassMethods
   
-        # This method reads the internal Hash +i18n_ivars+ containing registered
+        # This method reads the internal Hash +i18n_inflector_methods+ containing registered
         # inflection methods and the assigned kinds. It also reads any methods
         # assignments that were defined earlier in the inheritance path and
         # merges them with current results; the most current entries will
-        # override the entries defined in before.
+        # override the entries defined before.
         # 
         # @api public
         # @return [Hash] the Hash containing assignments made by using {inflection_method}
-        def i18n_ivars
-          prev = superclass.respond_to?(:i18n_ivars) ? superclass.i18n_ivars : {}
-          return @i18n_ivars.nil? ? prev : prev.merge(@i18n_ivars)
+        def i18n_inflector_methods
+          prev = superclass.respond_to?(:i18n_inflector_methods) ? superclass.i18n_inflector_methods : {}
+          return @i18n_inflector_methods.nil? ? prev : prev.merge(@i18n_inflector_methods)
         end
   
         # This method allows to assign methods (typically attribute readers)
@@ -47,27 +47,29 @@ module I18n
         # 
         # @api public
         # @param [Hash] assignment the methods and inflection kinds assigned to them
-        # @yield [method, kind, value, caller] Optional block that will be executed
-        #   each time the registered method is called and its result will replace
+        # @yield [method, kind, value, caller] optional block that will be executed
+        #   each time the registered method is called. Its result will replace
         #   the original returning value of the method that is assigned to a kind
         # @yieldparam [Symbol] method the name of an assigned method
         # @yieldparam [Symbol] kind the name of an inflection kind assigned to that +method+
-        # @yieldparam [Object] value the original result of calling the +method+ that will be assigned to a +kind+
+        # @yieldparam [Object] value the original result of calling the +method+ that will be assigned to a +kind+ as a token
         # @yieldparam [Object] caller the object that made a call to {translate} method
-        # @yieldreturn [String] the new +value+ that will be assigned to a +kind+
+        # @yieldreturn [String] the new +value+ (token name) that will be assigned to a +kind+
         def inflection_method(assignment, &block)
           if (assignment.nil? || !assignment.is_a?(Hash) || assignment.empty?)
             raise I18n::Inflector::Rails::BadInflectionMethod.new(assignment)
           end
-          @i18n_ivars ||= {}
+          @i18n_inflector_methods ||= {}
           assignment.each_pair do |k,v|
             k = k.to_s
             v = v.to_s
-            next if (k.empty? || v.empty?)
+            if (k.empty? || v.empty?)
+              raise I18n::Inflector::Rails::BadInflectionMethod.new("#{k.inspect} => #{v.inspect}")
+            end
             k = k.to_sym
-            @i18n_ivars[k]      ||= {}
-            @i18n_ivars[k][:kind] = v.to_sym
-            @i18n_ivars[k][:proc] = block
+            @i18n_inflector_methods[k]      ||= {}
+            @i18n_inflector_methods[k][:kind] = v.to_sym
+            @i18n_inflector_methods[k][:proc] = block
           end
         end
         alias_method :inflection_methods, :inflection_method
@@ -75,13 +77,13 @@ module I18n
       end # class methods
   
       # This module contains a version of {translate} method that
-      # tries to use +i18n_ivars+ available in the current context.
+      # tries to use +i18n_inflector_methods+ available in the current context.
       # The method from this module will wrap the
       # {ActionView::Helpers::TranslationHelper#translate} method.
-      module Translate
+      module InflectedTranslate
   
         # This method tries to feed itself with the data coming
-        # from +i18n_ivars+ available in the current context.
+        # from +i18n_inflector_methods+ available in the current context.
         # The data from the last method should contain options
         # of inflection pairs (<tt>kind => value</tt>) that will
         # be passed to {I18n::Backend::Inflector#translate} through
@@ -94,13 +96,13 @@ module I18n
         # @return [String] the translated string with inflection patterns
         #   interpolated
         def translate(*args)
-          return super unless respond_to?(:i18n_ivars)
+          return super unless respond_to?(:i18n_inflector_methods)
           test_locale = args.last.is_a?(Hash) ? args.last[:locale] : nil
           test_locale ||= I18n.locale
           return super unless I18n::Inflector.locale?(test_locale)
   
           # collect inflection variables that are present in this context
-          subopts = prepare_ivars_options
+          subopts = t_prepare_inflection_options
   
           # jump to original translate if no variables are present
           return super if subopts.empty?
@@ -112,18 +114,17 @@ module I18n
   
         protected
   
-        # This method tries to read +i18n_ivars+ available in the current context.
+        # This method tries to read +i18n_inflector_methods+ available in the current context.
         # 
         # @return [Hash] the inflection options (<tt>kind => value</tt>)
-        def prepare_ivar_options
+        def t_prepare_inflection_options
           subopts = {}
-          i18n_ivars.each_pair do |m, obj|
+          i18n_inflector_methods.each_pair do |m, obj|
             next unless respond_to?(m)
             value = method(m).call
             proca = obj[:proc]
             kind  = obj[:kind]
-            next if proca.nil?
-            value = proca.call(m, kind, value, self)
+            value = proca.call(m, kind, value, self) unless proca.nil?
             subopts[kind] = value.to_s
           end
           return subopts
