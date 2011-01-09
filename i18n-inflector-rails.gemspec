@@ -3,7 +3,7 @@
 # This is just a helper file for those including directly from sources.
 # Real building follows the instructions in the hoe section of Rakefile.
 
-lib = File.expand_path('../../lib/', __FILE__)
+lib = File.expand_path('../lib/', __FILE__)
 $:.unshift lib unless $:.include?(lib)
 require 'i18n-inflector-rails/version'
 
