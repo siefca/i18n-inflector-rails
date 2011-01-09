@@ -8,11 +8,11 @@ Gem::Specification.new do |s|
   s.version      = I18n::Inflector::Rails::VERSION
   s.authors      = [I18n::Inflector::Rails::DEVELOPER]
   s.email        = I18n::Inflector::Rails::EMAIL
-  s.homepage     = "http://github.com/siefca/rails-i18n-inflector"
+  s.homepage     = I18n::Inflector::Rails::URL
   s.summary      = I18n::Inflector::Rails::SUMMARY
   s.description  = I18n::Inflector::Rails::DESCRIPTION
 
-  s.files        = Dir.glob("{ci,lib,spec,docs}/**/**") + %w(README.rdoc LGPL-LICENSE ChangeLog Manifest.txt)
+  s.files        = Dir.glob("{ci,lib,spec,docs}/**/**") + %w(install.rb uninstall.rb init.rb Gemfile .rspec .yardopts README.rdoc LGPL-LICENSE ChangeLog Manifest.txt)
   s.platform     = Gem::Platform::RUBY
   s.require_path = 'lib'
   s.rubyforge_project = '[none]'
