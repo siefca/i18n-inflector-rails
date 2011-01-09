@@ -1,3 +1,21 @@
+commit a3bf341ae100885b39e770d7cc91ebe7a9734a22
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 06:23:37 2011 +0100
+
+    Dependencies cleaned, gemspec and Rakefile independent from module code (added version.rb for that)
+
+commit 5583b7ac968d999ba2a74b3d8457c29df0afba9d
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 02:26:43 2011 +0100
+
+    Gemspec upgraded
+
+commit 2c754d88f34bb41b5a377c8f9108687157dca08a
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 02:24:14 2011 +0100
+
+    Added gemspec for compatibility
+
 commit 2eebc9668e1b05ac65342ebf8ebb2ded0ac80589
 Author: Paweł Wilk <siefca@gnu.org>
 Date:   Sun Jan 9 01:37:12 2011 +0100

@@ -6,6 +6,7 @@ LGPL-LICENSE
 Manifest.txt
 README.rdoc
 Rakefile
+ci/i18n-inflector.gemspec
 docs/COPYING
 docs/HISTORY
 docs/LEGAL
