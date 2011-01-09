@@ -1,11 +1,11 @@
 = Simple I18n Inflector for Rails
 
-<b>rails-i18n-inflector version <tt>1.0</tt></b> (<b><tt>Sexparty</tt></b>)
+<b>i18n-inflector-rails version <tt>1.0</tt></b> (<b><tt>Sexparty</tt></b>)
 
 
 
-* https://rubygems.org/gems/rails-i18n-inflector
-* https://github.com/siefca/rails-i18n-inflector/tree
+* https://rubygems.org/gems/i18n-inflector-rails
+* https://github.com/siefca/i18n-inflector-rails/tree
 * mailto:pw@gnu.org
 
 == Description
@@ -35,7 +35,7 @@ This module also adds +inflection_method+ clause that can be used
 in controllers and views. Using that clause makes it easy to register
 methods that will be called to obtain mentioned inflection options.
 
-See {whole documentation}[http://rubydoc.info/gems/rails-i18n-inflector/] for more info about the usage.
+See {whole documentation}[http://rubydoc.info/gems/i18n-inflector-rails/] for more info about the usage.
 To understand how the I18n Inflector works please read {I18n Inflector documentation}[http://rubydoc.info/gems/i18n-inflector/].
 
 == Requirements
@@ -49,16 +49,16 @@ To understand how the I18n Inflector works please read {I18n Inflector documenta
 
 ==== Source code
 
-* https://github.com/siefca/rails-i18n-inflector/tree
-* <tt>git clone git://github.com/siefca/rails-i18n-inflector.git</tt>
+* https://github.com/siefca/i18n-inflector-rails/tree
+* <tt>git clone git://github.com/siefca/i18n-inflector-rails.git</tt>
 
 ==== Gem
 
-* https://rubygems.org/gems/rails-i18n-inflector
+* https://rubygems.org/gems/i18n-inflector-rails
 
 == Installation
 
-* <tt>sudo gem install rails-i18n-inflector</tt>
+* <tt>sudo gem install i18n-inflector-rails</tt>
 
 == Synopsis
 
@@ -98,7 +98,7 @@ You can run RSpec examples both with
 
 == More information
 
-See {whole documentation}[http://rubydoc.info/gems/rails-i18n-inflector/] for more info about the usage.
+See {whole documentation}[http://rubydoc.info/gems/i18n-inflector-rails/] for more info about the usage.
 
 See {I18n::Inflector::Rails} module documentation for detailed information.
 
@@ -106,7 +106,7 @@ See {I18n::Inflector::Rails} module documentation for detailed information.
 
 Copyright (c) 2010 by Paweł Wilk.
 
-rails-i18n-inflector is copyrighted software owned by Paweł Wilk (pw@gnu.org).
+i18n-inflector-rails is copyrighted software owned by Paweł Wilk (pw@gnu.org).
 You may redistribute and/or modify this software as long as you
 comply with either the terms of the LGPL (see {file:LGPL-LICENSE}),
 or Ruby's license (see {file:COPYING}).

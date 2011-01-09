@@ -17,11 +17,11 @@ module I18n
       # @private
       VERSION     = '0.0.1'
       # @private
-      NAME        = 'rails-i18n-inflector'
+      NAME        = 'i18n-inflector-rails'
       # @private
       SUMMARY     = 'I18n Inflector bindings for Rails'
       # @private
-      URL         = 'https://rubygems.org/gems/rails-i18n-inflector/'
+      URL         = 'https://rubygems.org/gems/i18n-inflector-rails/'
       # @private
       DESCRIPTION = 'This plug-in provides I18n Inflector module bindings for Rails.'
 

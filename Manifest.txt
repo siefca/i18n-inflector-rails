@@ -13,10 +13,10 @@ docs/LEGAL
 docs/LGPL-LICENSE
 docs/rdoc.css
 init.rb
-lib/rails-i18n-inflector.rb
-lib/rails-i18n-inflector/errors.rb
-lib/rails-i18n-inflector/inflector.rb
-lib/rails-i18n-inflector/railtie.rb
-lib/rails-i18n-inflector/version.rb
+lib/i18n-inflector-rails.rb
+lib/i18n-inflector-rails/errors.rb
+lib/i18n-inflector-rails/inflector.rb
+lib/i18n-inflector-rails/railtie.rb
+lib/i18n-inflector-rails/version.rb
 spec/inflector_spec.rb
 spec/spec_helper.rb

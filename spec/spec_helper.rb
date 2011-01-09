@@ -1,2 +1,2 @@
 require 'rspec/core'
-require 'rails-i18n-inflector'
+require 'i18n-inflector-rails'

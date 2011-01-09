@@ -2,7 +2,7 @@
 
 lib = File.expand_path('../../lib/', __FILE__)
 $:.unshift lib unless $:.include?(lib)
-require 'rails-i18n-inflector/version'
+require 'i18n-inflector-rails/version'
 
 Gem::Specification.new do |s|
   s.name         = I18n::Inflector::Rails::NAME

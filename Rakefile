@@ -12,7 +12,7 @@ require "rake/clean"
 require "fileutils"
 require "i18n-inflector"
 
-require 'rails-i18n-inflector/version'
+require 'i18n-inflector-rails/version'
 require 'hoe'
 
 task :default => [:test]
@@ -27,7 +27,7 @@ end
 Hoe.plugin :bundler
 Hoe.plugin :yard
 
-Hoe.spec 'rails-i18n-inflector' do
+Hoe.spec 'i18n-inflector-rails' do
   developer               I18n::Inflector::Rails::DEVELOPER, I18n::Inflector::Rails::EMAIL
 
   self.version         =  I18n::Inflector::Rails::VERSION

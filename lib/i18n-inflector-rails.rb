@@ -1,13 +1,13 @@
 # encoding: utf-8
 
 require 'i18n-inflector'
-require 'rails-i18n-inflector/version'
-require 'rails-i18n-inflector/errors'
-require 'rails-i18n-inflector/inflector'
+require 'i18n-inflector-rails/version'
+require 'i18n-inflector-rails/errors'
+require 'i18n-inflector-rails/inflector'
 
 if defined? Rails::Engine
 
-  require 'rails-i18n-inflector/railtie'
+  require 'i18n-inflector-rails/railtie'
 
 else
 
