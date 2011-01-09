@@ -1,3 +1,9 @@
+commit 2eebc9668e1b05ac65342ebf8ebb2ded0ac80589
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 01:37:12 2011 +0100
+
+    Deps fixed, Rakefile updated
+
 commit 84e8c52a61642a9d5d4f24aa354ea2384bfbf817
 Author: Paweł Wilk <siefca@gnu.org>
 Date:   Sun Jan 9 01:18:07 2011 +0100
