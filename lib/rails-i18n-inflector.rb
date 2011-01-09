@@ -21,26 +21,24 @@ else
 end
 
 module I18n
-  module Backend
-    module Inflector
-      module Rails
+  module Inflector
+    module Rails
 
-        # @private
-        DEVELOPER   = 'Paweł Wilk'
-        # @private
-        EMAIL       = 'pw@gnu.org'
-        # @private
-        VERSION     = '1.0.0'
-        # @private
-        NAME        = 'rails-i18n-inflector'
-        # @private
-        SUMMARY     = 'I18n Inflector bindings for Rails (Action Pack)'
-        # @private
-        URL         = 'https://rubygems.org/gems/rails-i18n-inflector/'
-        # @private
-        DESCRIPTION = 'This library provides I18n Inflector module bindings for Rails.'
+      # @private
+      DEVELOPER   = 'Paweł Wilk'
+      # @private
+      EMAIL       = 'pw@gnu.org'
+      # @private
+      VERSION     = '0.0.1'
+      # @private
+      NAME        = 'rails-i18n-inflector'
+      # @private
+      SUMMARY     = 'I18n Inflector bindings for Rails'
+      # @private
+      URL         = 'https://rubygems.org/gems/rails-i18n-inflector/'
+      # @private
+      DESCRIPTION = 'This library provides I18n Inflector module bindings for Rails.'
 
-      end
     end
   end
 end

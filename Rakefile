@@ -28,13 +28,13 @@ Hoe.plugin :bundler
 Hoe.plugin :yard
 
 Hoe.spec 'rails-i18n-inflector' do
-  developer               I18n::Backend::Inflector::Rails::DEVELOPER, I18n::Backend::Inflector::Rails::EMAIL
+  developer               I18n::Inflector::Rails::DEVELOPER, I18n::Inflector::Rails::EMAIL
 
-  self.version         =  I18n::Backend::Inflector::Rails::VERSION
-  self.rubyforge_name  =  I18n::Backend::Inflector::Rails::NAME
-  self.summary         =  I18n::Backend::Inflector::Rails::SUMMARY
-  self.description     =  I18n::Backend::Inflector::Rails::DESCRIPTION
-  self.url             =  I18n::Backend::Inflector::Rails::URL
+  self.version         =  I18n::Inflector::Rails::VERSION
+  self.rubyforge_name  =  I18n::Inflector::Rails::NAME
+  self.summary         =  I18n::Inflector::Rails::SUMMARY
+  self.description     =  I18n::Inflector::Rails::DESCRIPTION
+  self.url             =  I18n::Inflector::Rails::URL
 
   self.test_globs       = %w(test/**/*_test.rb)
 
@@ -70,12 +70,12 @@ end
 
 desc "Create signed tag in Git"
 task :tag do
-  sh %{git tag -u #{I18n::Backend::Inflector::Rails::EMAIL} v#{I18n::Backend::Inflector::Rails::VERSION} -m 'version #{I18n::Backend::Inflector::Rails::VERSION}'}
+  sh %{git tag -s v#{I18n::Inflector::Rails::VERSION} -m 'version #{I18n::Inflector::Rails::VERSION}'}
 end
 
 desc "Create external GnuPG signature for Gem"
 task :gemsign do
-  sh %{gpg -u #{I18n::Backend::Inflector::Rails::EMAIL} -ab pkg/#{I18n::Backend::Inflector::Rails::NAME}-#{I18n::Backend::Inflector::Rails::VERSION}.gem \
-           -o pkg/#{I18n::Backend::Inflector::Rails::NAME}-#{I18n::Backend::Inflector::Rails::VERSION}.gem.sig}
+  sh %{gpg -u #{I18n::Inflector::Rails::EMAIL} -ab pkg/#{I18n::Inflector::Rails::NAME}-#{I18n::Inflector::Rails::VERSION}.gem \
+           -o pkg/#{I18n::Inflector::Rails::NAME}-#{I18n::Inflector::Rails::VERSION}.gem.sig}
 end
 

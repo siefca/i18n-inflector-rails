@@ -1,4 +1,4 @@
-= Simple I18n Inflector for Rails (Action Pack)
+= Simple I18n Inflector for Rails
 
 <b>rails-i18n-inflector version <tt>1.0</tt></b> (<b><tt>Sexparty</tt></b>)
 
@@ -11,7 +11,7 @@
 == Description
 
 This library contains bindings for the I18n Inflector module for Ruby's I18n.
-It overwrites the TranslationHelper's translate method so it will
+It overwrites the translate method from Rails in a way that it will
 interpolate additional inflection tokens present in translations.
 These tokens may appear in *patterns* which are contained within
 <tt>@{</tt> and <tt>}</tt> symbols.
@@ -29,9 +29,18 @@ If you have a troop of happy translators that shouldn't have the
 ability to execute any code yet you need some simple inflection
 then you can make use of this module.
 
+This module uses i18n-inflector[https://rubygems.org/gems/i18n-inflector]
+module which allows passing inflection options to the translate method.
+This module also adds +inflection_method+ clause that can be used
+in controllers and views. Using that clause makes it easy to register
+methods that will be called to obtain mentioned inflection options.
+
+See {whole documentation}[http://rubydoc.info/gems/rails-i18n-inflector/] for more info about the usage.
+To understand how the I18n Inflector works please read {I18n Inflector documentation}[http://rubydoc.info/gems/i18n-inflector/].
+
 == Requirements
 
-* i18n[https://rubygems.org/gems/i18n]
+* i18n-inflector[https://rubygems.org/gems/i18n-inflector]
 * actionpack[https://rubygems.org/gems/actionpack]
 * rake[https://rubygems.org/gems/rake]
 * rubygems[http://docs.rubygems.org/]
@@ -53,11 +62,8 @@ then you can make use of this module.
 
 == Synopsis
 
-  require 'rails-i18n-inflector'
-  i18n.translate('welcome')
-
-Detailed example:
-
+  ### Translation data (usually loaded from YAML file):
+  
   I18n.locale = :en
   I18n.backend.store_translations 'en', :i18n => { :inflections => {
                                                      :gender => {
@@ -65,33 +71,36 @@ Detailed example:
                                                        :m => 'male',
                                                        :n => 'neuter',
                                                        :default => 'n' }}}
-   
-   I18n.backend.store_translations 'en', 'welcome' => 'Dear @{f:Lady|m:Sir|n:You|All}'
   
-   I18n.t('welcome')
-   # => "Dear You"
-   
-   I18n.t('welcome', :gender => :male)
-   # => "Dear Sir"
-   
-   I18n.t('welcome', :gender => :unknown)
-   # => "Dear All"
-   
-   I18n.t('welcome', :gender => nil)
-   # => "Dear All"
+  I18n.backend.store_translations 'en', 'welcome' => 'Dear @{f:Lady|m:Sir|n:You|All}'
+  
+  ###
+  
+  class UsersController << ActiveController
+    inflection_method :gender
+    
+    # t() will call gender() from the current context
+    # to get the inflection token
+    # assuming that the method gender gets gender field
+    # from the database and converts it to symbol
+    def say_welcome
+      t('welcome')
+      # => "Dear Sir"
+    end
+  end
+ 
+== Specs
 
-== Tests
+You can run RSpec examples both with
 
-You can run tests both with
-
-* <tt>rake test</tt> or just <tt>rake</tt>
-* run a test file directly, e.g. <tt>ruby -Ilib -Itest test/inflector_test.rb</tt>
+* <tt>rake spec</tt> or just <tt>rake</tt>
+* run a test file directly, e.g. <tt>ruby -Ilib -Ispec spec/inflector_spec.rb</tt>
 
 == More information
 
-See {whole documentation}[http://rubydoc.info/gems/rails-i18n-inflector/] for more info about usage.
+See {whole documentation}[http://rubydoc.info/gems/rails-i18n-inflector/] for more info about the usage.
 
-See {I18n::Backend::Inflector::Rails} module documentation for detailed information.
+See {I18n::Inflector::Rails} module documentation for detailed information.
 
 == License
 
