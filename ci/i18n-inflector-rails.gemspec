@@ -1,5 +1,8 @@
 # encoding: utf-8
 
+# This is just a helper file for those including directly from sources.
+# Real building follows the instructions in the hoe section of Rakefile.
+
 lib = File.expand_path('../../lib/', __FILE__)
 $:.unshift lib unless $:.include?(lib)
 require 'i18n-inflector-rails/version'
@@ -15,7 +18,7 @@ Gem::Specification.new do |s|
 
   s.files        = Dir.glob("{ci,lib,spec,docs}/**/**") + %w(init.rb Gemfile .rspec .yardopts README.rdoc LGPL-LICENSE ChangeLog Manifest.txt)
   s.extra_rdoc_files = ["README.rdoc", "docs/HISTORY", "docs/LGPL-LICENSE", "docs/COPYING"]
-  s.rdoc_options = ["--main", "README.rdoc"]
+  s.rdoc_options = ["--main", "README.rdoc", "--charset=UTF-8"]
   s.platform     = Gem::Platform::RUBY
   s.require_path = 'lib'
   s.rubyforge_project = '[none]'
