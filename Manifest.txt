@@ -6,12 +6,12 @@ LGPL-LICENSE
 Manifest.txt
 README.rdoc
 Rakefile
-ci/i18n-inflector.gemspec
 docs/COPYING
 docs/HISTORY
 docs/LEGAL
 docs/LGPL-LICENSE
 docs/rdoc.css
+i18n-inflector-rails.gemspec
 init.rb
 lib/i18n-inflector-rails.rb
 lib/i18n-inflector-rails/errors.rb

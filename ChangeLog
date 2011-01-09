@@ -1,3 +1,51 @@
+commit 75b492579a8d25ab3e48a7795a1f351f2f7b379c
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 20:58:49 2011 +0100
+
+    Moved gemspec to root
+
+commit c58191d99e80b28d045fd48e14689b0cf4bc49cb
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 20:56:04 2011 +0100
+
+    Added important note to gemspec
+
+commit 7fa840a3522b19bb2db9231acdb21faeaedcbfbd
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 20:46:16 2011 +0100
+
+    Specfile fixed: removed non-existent files
+
+commit b660e57b969cdb57248a111585278cd20ebbee7a
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 20:13:29 2011 +0100
+
+    Specfile renamed
+
+commit 81cffc37a6b30fc7595bb26643588bce1db62da7
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 20:12:24 2011 +0100
+
+    Repository name changed to i18n-inflector-rails
+
+commit cda3edcffe9465e021af8380af3ceae0f98ef0a8
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 07:11:22 2011 +0100
+
+    Dependencies fixed
+
+commit c1ce77a843490b21233f0c60b35c64d4df731834
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 06:45:48 2011 +0100
+
+    Dependencies back to gemspec
+
+commit 745815d7047d7cc39ec48c9265714c110527fc1e
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 06:25:45 2011 +0100
+
+    Call it beta
+
 commit a3bf341ae100885b39e770d7cc91ebe7a9734a22
 Author: Paweł Wilk <siefca@gnu.org>
 Date:   Sun Jan 9 06:23:37 2011 +0100
