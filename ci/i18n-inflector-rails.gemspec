@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary      = I18n::Inflector::Rails::SUMMARY
   s.description  = I18n::Inflector::Rails::DESCRIPTION
 
-  s.files        = Dir.glob("{ci,lib,spec,docs}/**/**") + %w(install.rb uninstall.rb init.rb Gemfile .rspec .yardopts README.rdoc LGPL-LICENSE ChangeLog Manifest.txt)
+  s.files        = Dir.glob("{ci,lib,spec,docs}/**/**") + %w(init.rb Gemfile .rspec .yardopts README.rdoc LGPL-LICENSE ChangeLog Manifest.txt)
   s.extra_rdoc_files = ["README.rdoc", "docs/HISTORY", "docs/LGPL-LICENSE", "docs/COPYING"]
   s.rdoc_options = ["--main", "README.rdoc"]
   s.platform     = Gem::Platform::RUBY
