@@ -12,7 +12,7 @@ require "rake/clean"
 require "fileutils"
 require "i18n-inflector"
 
-require 'rails-i18n-inflector'
+require 'rails-i18n-inflector/version'
 require 'hoe'
 
 task :default => [:test]
@@ -41,9 +41,9 @@ Hoe.spec 'rails-i18n-inflector' do
   self.readme_file     = 'README.rdoc'
   self.history_file    = 'docs/HISTORY'
   
-  extra_deps          << ['i18n-inflector',   '>= 1.0.8'] <<
-                         ['railties',         '>= 3.0.0'] <<
-                         ['actionpack',       '>= 3.0.0']
+  extra_deps          << ['i18n-inflector',   '~> 1.0.8'] <<
+                         ['railties',         '~> 3.0.0'] <<
+                         ['actionpack',       '~> 3.0.0']
   extra_dev_deps      << ['rspec',            '>= 2.3.0'] <<
                          ['yard',             '>= 0.6.4'] <<
                          ['bundler',          '>= 1.0.7'] <<

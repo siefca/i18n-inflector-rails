@@ -2,9 +2,9 @@
 
 source :gemcutter
 
-gem "i18n-inflector", ">=1.0.8"
-gem "railties", ">=3.0.0"
-gem "actionpack", ">=3.0.0"
+gem "i18n-inflector", "~>1.0.8"
+gem "railties", "~>3.0.0"
+gem "actionpack", "~>3.0.0"
 
 gem "hoe-yard", ">=0.1.2", :group => [:development, :test]
 gem "rspec", ">=2.3.0", :group => [:development, :test]

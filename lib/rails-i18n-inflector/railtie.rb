@@ -6,9 +6,6 @@
 # 
 # This file loads I18n::Inflector::Rails goodies into Rails.
 
-require 'rails-i18n-inflector'
-require 'rails' if not defined?(::Rails::Railtie)
-
 module I18n
   module Inflector
     module Rails
@@ -22,8 +19,6 @@ module I18n
 
         initializer :after_initialize do
           ActionController::Base.send(:include, I18n::Inflector::Rails::InflectedTranslate)
-          #ActionController::Base.helper I18n::Inflector::Rails::InflectedTranslate
-          #ActionView::Helpers::TranslationHelper.send(:include, I18n::Inflector::Rails::InflectedTranslate)
         end
       end
 
