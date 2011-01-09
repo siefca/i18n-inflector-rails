@@ -47,7 +47,8 @@ Hoe.spec 'rails-i18n-inflector' do
   extra_dev_deps      << ['rspec',            '>= 2.3.0'] <<
                          ['yard',             '>= 0.6.4'] <<
                          ['bundler',          '>= 1.0.7'] <<
-                         ['hoe-bundler',      '>= 1.0.0']
+                         ['hoe-bundler',      '>= 1.0.0'] <<
+                         ['hoe-yard',         '>= 0.1.2']
 end
 
 task 'Manifest.txt' do

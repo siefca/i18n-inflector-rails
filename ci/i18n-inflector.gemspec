@@ -5,7 +5,7 @@ $:.unshift lib unless $:.include?(lib)
 require 'rails-i18n-inflector/version'
 
 Gem::Specification.new do |s|
-  s.name         = "rails-i18n-inflector"
+  s.name         = I18n::Inflector::Rails::NAME
   s.version      = I18n::Inflector::Rails::VERSION
   s.authors      = [I18n::Inflector::Rails::DEVELOPER]
   s.email        = I18n::Inflector::Rails::EMAIL
@@ -28,4 +28,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec',       '>= 2.3.0'
   s.add_development_dependency 'yard',        '>= 1.0.7'
   s.add_development_dependency 'hoe-bundler', '>= 1.0.0'
+  s.add_development_dependency 'hoe-yard',    '>= 0.1.2'
 end
