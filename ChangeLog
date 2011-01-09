@@ -1,3 +1,57 @@
+commit 84e8c52a61642a9d5d4f24aa354ea2384bfbf817
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 01:18:07 2011 +0100
+
+    Namespace changed (removed "Backend"), documentation updated
+
+commit 037edac820723b7c7452c2f0eae8f572558bb1ad
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sat Jan 8 16:48:21 2011 +0100
+
+    Deps updated
+
+commit 66c6be2be85b56e88fd27a0cdc0ee34dbbdb846b
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Thu Jan 6 23:15:05 2011 +0100
+
+    Unit tests stubs removed
+
+commit 41e9409414c75f5b5ef77e69ce62a291d321d04f
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Thu Jan 6 23:13:45 2011 +0100
+
+    Added Railtie, added common files for older Rails versions just in case
+
+commit 818027d17d91171499b410e2e7628422e61eb165
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Thu Jan 6 23:12:42 2011 +0100
+
+    Added rspec examples
+
+commit f564dc4c25060961b2838ddae03056fbb9f5fa2a
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Thu Jan 6 23:11:49 2011 +0100
+
+    Method names changed, inflection options extraction fixed, documentation updated.
+
+commit e0f0fd9086b00efec6e1e979c0a8ea2d03904371
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Thu Jan 6 23:09:46 2011 +0100
+
+    Fixed error reporting class: message is more generic
+
+commit fc1c7ea3aa2d4011075d05926fcc8baa5758f322
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Thu Jan 6 23:09:09 2011 +0100
+
+    Dependences changed: railties and rspec-rails added
+
+commit cf63e0e3b0cf0388c11143bbe67868b8fbd5bdd9
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 2 16:03:20 2011 +0100
+
+    Added ChangeLog and Manifest.txt
+
 commit 4dfee2aa8b56922e4bfc8bd8d2a64456cde256c6
 Author: Paweł Wilk <siefca@gnu.org>
 Date:   Sun Jan 2 16:01:46 2011 +0100

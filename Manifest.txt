@@ -1,6 +1,9 @@
+.rspec
 .yardopts
+ChangeLog
 Gemfile
 LGPL-LICENSE
+Manifest.txt
 README.rdoc
 Rakefile
 docs/COPYING
@@ -8,7 +11,12 @@ docs/HISTORY
 docs/LEGAL
 docs/LGPL-LICENSE
 docs/rdoc.css
+init.rb
+install.rb
 lib/rails-i18n-inflector.rb
 lib/rails-i18n-inflector/errors.rb
 lib/rails-i18n-inflector/inflector.rb
-test/test_helper.rb
+lib/rails-i18n-inflector/railtie.rb
+spec/inflector_spec.rb
+spec/spec_helper.rb
+uninstall.rb

@@ -36,16 +36,15 @@ Hoe.spec 'rails-i18n-inflector' do
   self.description     =  I18n::Inflector::Rails::DESCRIPTION
   self.url             =  I18n::Inflector::Rails::URL
 
-  self.test_globs       = %w(test/**/*_test.rb)
-
   self.remote_rdoc_dir = ''
   self.rsync_args      << '--chmod=a+rX'
   self.readme_file     = 'README.rdoc'
   self.history_file    = 'docs/HISTORY'
   
   extra_deps          << ['i18n-inflector',   '>= 1.0.8'] <<
-                         ['railties',         '>= 3.0.0']
-  extra_dev_deps      << ['rspec-rails',      '>= 2.3.0'] <<
+                         ['railties',         '>= 3.0.0'] <<
+                         ['actionpack',       '>= 3.0.0']
+  extra_dev_deps      << ['rspec',            '>= 2.3.0'] <<
                          ['yard',             '>= 0.6.4'] <<
                          ['bundler',          '>= 1.0.7'] <<
                          ['hoe-bundler',      '>= 1.0.0']
