@@ -1,3 +1,33 @@
+commit c985de4af92f1d1619cfb228ae378d5ca383babd
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Tue Jan 11 13:55:45 2011 +0100
+
+    Beta
+
+commit f338a6a56f36eed25f831d6fbc3fe0127a08931b
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Tue Jan 11 08:28:52 2011 +0100
+
+    Serious changes that are making it work in a real Rails 3 environment
+
+commit 528fcb11daee63711dae36fa6b3b97bd2ab25370
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Tue Jan 11 08:27:43 2011 +0100
+
+    Added no_inflection_method class method, each added method becomes a helper method
+
+commit 17d35aae4c269663b44277751e2d45260abb3c56
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 21:03:50 2011 +0100
+
+    Path fixed
+
+commit 289c85c00008b67584e30eb170ce173c35187e84
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 21:00:40 2011 +0100
+
+    Updated Manifest.txt and ChangeLog
+
 commit 75b492579a8d25ab3e48a7795a1f351f2f7b379c
 Author: Paweł Wilk <siefca@gnu.org>
 Date:   Sun Jan 9 20:58:49 2011 +0100

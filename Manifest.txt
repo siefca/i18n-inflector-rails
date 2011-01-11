@@ -10,6 +10,7 @@ docs/COPYING
 docs/HISTORY
 docs/LEGAL
 docs/LGPL-LICENSE
+docs/TODO
 docs/rdoc.css
 i18n-inflector-rails.gemspec
 init.rb
