@@ -18,7 +18,7 @@ module I18n
         end
 
         initializer :after_initialize do
-          ActionController::Base.send(:include, I18n::Inflector::Rails::InflectedTranslate)
+          ActionController::Base.helper I18n::Inflector::Rails::InflectedTranslate
         end
       end
 

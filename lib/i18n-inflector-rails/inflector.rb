@@ -18,7 +18,14 @@ module I18n
   
         # This method calls the class method {I18n::Inflector::Rails::ClassMethods#i18n_inflector_methods}
         def i18n_inflector_methods
-          self.class.i18n_inflector_methods
+          warn "calling class for i18n_inflector_methods to #{self.class.name} super: #{self.class.superclass.name}"
+          return self.class.i18n_inflector_methods #if self.class.respond_to?(:i18n_inflector_methods) # fixme: remove it?
+          #return {}
+        end
+
+        # @private
+        def self.included(base)
+          base.helper_method(:i18n_inflector_methods)
         end
   
       end # instance methods
@@ -38,7 +45,7 @@ module I18n
           prev = superclass.respond_to?(:i18n_inflector_methods) ? superclass.i18n_inflector_methods : {}
           return @i18n_inflector_methods.nil? ? prev : prev.merge(@i18n_inflector_methods)
         end
-  
+
         # This method allows to assign methods (typically attribute readers)
         # to inflection kinds that are defined in translation files and
         # supported by {I18n::Inflector} module. Methods registered like that
@@ -112,11 +119,12 @@ module I18n
         # @return [String] the translated string with inflection patterns
         #   interpolated
         def translate(*args)
-          return super unless respond_to?(:i18n_inflector_methods)
+          # fixme: some test if we should call regular translate? check in AR or other places
+          warn "translate for #{args.inspect}"
           test_locale = args.last.is_a?(Hash) ? args.last[:locale] : nil
           test_locale ||= I18n.locale
           return super unless I18n::Inflector.locale?(test_locale)
-  
+
           # collect inflection variables that are present in this context
           subopts = t_prepare_inflection_options
   
@@ -127,6 +135,8 @@ module I18n
           args.push subopts.merge(options)
           super
         end
+        
+        alias_method :t, :translate
   
         protected
   
@@ -135,8 +145,10 @@ module I18n
         # @return [Hash] the inflection options (<tt>kind => value</tt>)
         def t_prepare_inflection_options
           subopts = {}
+          #return subopts unless respond_to?(:i18n_inflector_methods) # fixme: switch?
           i18n_inflector_methods.each_pair do |m, obj|
-            next unless respond_to?(m)
+            next if obj.nil?
+            #next unless respond_to?(m) # fixme: add some switch to reduce nasty checks or remove completely
             value = method(m).call
             proca = obj[:proc]
             kind  = obj[:kind]

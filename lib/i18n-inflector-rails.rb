@@ -12,8 +12,15 @@ if defined? Rails::Engine
 else
 
   require 'action_controller' if not defined? ActionController::Base
+  require 'action_view'       if not defined? ActionView::Base
+
   ActionController::Base.send(:extend,  I18n::Inflector::Rails::ClassMethods)
   ActionController::Base.send(:include, I18n::Inflector::Rails::InstanceMethods)
-  ActionController::Base.send(:include, I18n::Inflector::Rails::InflectedTranslate)
+
+  if ActionController::Base.respond_to?(:helper)
+    ActionController::Base.helper I18n::Inflector::Rails::InflectedTranslate
+  else
+    ActionController::Base.send(:include, I18n::Inflector::Rails::InflectedTranslate)
+  end
 
 end
