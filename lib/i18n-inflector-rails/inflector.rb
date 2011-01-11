@@ -67,13 +67,29 @@ module I18n
               raise I18n::Inflector::Rails::BadInflectionMethod.new("#{k.inspect} => #{v.inspect}")
             end
             k = k.to_sym
+            helper_method(k)
             @i18n_inflector_methods[k]      ||= {}
             @i18n_inflector_methods[k][:kind] = v.to_sym
             @i18n_inflector_methods[k][:proc] = block
           end
         end
         alias_method :inflection_methods, :inflection_method
-  
+
+        #
+        def no_inflection_method(*names)
+          names = names.flatten
+          if (names.nil? || names.empty?)
+            raise I18n::Inflector::Rails::BadInflectionMethod.new(names)
+          end
+          @i18n_inflector_methods ||= {}
+          names.each do |meth|
+            meth = meth.to_s
+            raise I18n::Inflector::Rails::BadInflectionMethod.new(meth) if meth.empty?
+            @i18n_inflector_methods[meth.to_sym] = nil
+           end
+        end
+        alias_method :no_inflection_methods, :no_inflection_method
+
       end # class methods
   
       # This module contains a version of {translate} method that
