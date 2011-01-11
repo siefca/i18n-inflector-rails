@@ -16,11 +16,10 @@ else
 
   ActionController::Base.send(:extend,  I18n::Inflector::Rails::ClassMethods)
   ActionController::Base.send(:include, I18n::Inflector::Rails::InstanceMethods)
+  ActionController::Base.send(:include, I18n::Inflector::Rails::InflectedTranslate)
 
-  if ActionController::Base.respond_to?(:helper)
-    ActionController::Base.helper I18n::Inflector::Rails::InflectedTranslate
-  else
-    ActionController::Base.send(:include, I18n::Inflector::Rails::InflectedTranslate)
+  if ActionController::Base.respond_to?(:helper_method)
+    ActionController::Base.helper_method :translate
   end
 
 end

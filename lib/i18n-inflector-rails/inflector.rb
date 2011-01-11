@@ -18,9 +18,7 @@ module I18n
   
         # This method calls the class method {I18n::Inflector::Rails::ClassMethods#i18n_inflector_methods}
         def i18n_inflector_methods
-          warn "calling class for i18n_inflector_methods to #{self.class.name} super: #{self.class.superclass.name}"
-          return self.class.i18n_inflector_methods #if self.class.respond_to?(:i18n_inflector_methods) # fixme: remove it?
-          #return {}
+          self.class.i18n_inflector_methods
         end
 
         # @private
@@ -50,10 +48,15 @@ module I18n
         # to inflection kinds that are defined in translation files and
         # supported by {I18n::Inflector} module. Methods registered like that
         # will be tracked when {translate} is used and their returning values will be
-        # passed as inflection options along with assigned kinds.
+        # passed as inflection options along with assigned kinds. If the kind is not
+        # given then method assumes that the name of a kind is the same as the given
+        # name of a method.
         # 
         # @api public
-        # @param [Hash] assignment the methods and inflection kinds assigned to them
+        # @note Any added method will become helper!
+        # @raise [I18n::Inflector::Rails::BadInflectionMethod] when name or value is malformed
+        # @param [Hash,Array,Symbol,String] assignment the methods and inflection kinds assigned to them
+        # @return [void]
         # @yield [method, kind, value, caller] optional block that will be executed
         #   each time the registered method is called. Its result will replace
         #   the original returning value of the method that is assigned to a kind
@@ -63,9 +66,18 @@ module I18n
         # @yieldparam [Object] caller the object that made a call to {translate} method
         # @yieldreturn [String] the new +value+ (token name) that will be assigned to a +kind+
         def inflection_method(assignment, &block)
+          if assignment.is_a?(Array)
+            new_assignment = {}
+            assignment.flatten.each{|e| new_assignment[e]=new_assignment}
+            assignment = new_assignment
+          elsif (assignment.is_a?(String) || assignment.is_a?(Symbol))
+            assignment = { assignment => assignment }
+          end
+
           if (assignment.nil? || !assignment.is_a?(Hash) || assignment.empty?)
             raise I18n::Inflector::Rails::BadInflectionMethod.new(assignment)
           end
+
           @i18n_inflector_methods ||= {}
           assignment.each_pair do |k,v|
             k = k.to_s
@@ -82,7 +94,16 @@ module I18n
         end
         alias_method :inflection_methods, :inflection_method
 
-        #
+        # This method allows to remove methods from sets
+        # created using {inflection_method}. It is useful
+        # when there is a need to break inheritance in some controller,
+        # but a method has been marked as inflection method by
+        # a parrent class.
+        # 
+        # @api public
+        # @raise [I18n::Inflector::Rails::BadInflectionMethod] when name or value is malformed
+        # @param [Array] names the method names that should be marked as removed in this controller
+        # @return [void]
         def no_inflection_method(*names)
           names = names.flatten
           if (names.nil? || names.empty?)
@@ -90,6 +111,9 @@ module I18n
           end
           @i18n_inflector_methods ||= {}
           names.each do |meth|
+            unless (meth.is_a?(Symbol) || meth.is_a?(String))
+              raise I18n::Inflector::Rails::BadInflectionMethod.new(meth)
+            end
             meth = meth.to_s
             raise I18n::Inflector::Rails::BadInflectionMethod.new(meth) if meth.empty?
             @i18n_inflector_methods[meth.to_sym] = nil
@@ -119,8 +143,6 @@ module I18n
         # @return [String] the translated string with inflection patterns
         #   interpolated
         def translate(*args)
-          # fixme: some test if we should call regular translate? check in AR or other places
-          warn "translate for #{args.inspect}"
           test_locale = args.last.is_a?(Hash) ? args.last[:locale] : nil
           test_locale ||= I18n.locale
           return super unless I18n::Inflector.locale?(test_locale)
@@ -145,10 +167,8 @@ module I18n
         # @return [Hash] the inflection options (<tt>kind => value</tt>)
         def t_prepare_inflection_options
           subopts = {}
-          #return subopts unless respond_to?(:i18n_inflector_methods) # fixme: switch?
           i18n_inflector_methods.each_pair do |m, obj|
             next if obj.nil?
-            #next unless respond_to?(m) # fixme: add some switch to reduce nasty checks or remove completely
             value = method(m).call
             proca = obj[:proc]
             kind  = obj[:kind]

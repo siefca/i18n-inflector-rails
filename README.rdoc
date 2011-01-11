@@ -8,13 +8,60 @@
 * https://github.com/siefca/i18n-inflector-rails/tree
 * mailto:pw@gnu.org
 
-== Description
+== Summary
 
-This library contains bindings for the I18n Inflector module for Ruby's I18n.
-It overwrites the translate method from Rails in a way that it will
+This Rails plug-in contains bindings for the I18n Inflector module for Ruby's I18n.
+It overwrites the translate() method from Rails in a way that it will
 interpolate additional inflection tokens present in translations.
 These tokens may appear in *patterns* which are contained within
 <tt>@{</tt> and <tt>}</tt> symbols.
+
+It's designed to be used in the environments where inflection is needed but
+translators should not use lambdas.
+
+== Synopsis
+
+  translate('.welcome')
+
+and in YAML:
+
+  en:
+    welcome:  "Dear @{f:Lady|m:Sir|n:You|All}"
+  
+  en:
+    i18n:
+      inflections:
+        gender:
+          f:        "female"
+          m:        "male"
+          n:        "neuter"
+          @female:  @f
+          @male:    @m
+          @neuter:  @n
+          man:      @male
+          woman:    @female
+          default:  neuter
+
+and in a controller:
+
+  class UsersController << ApplicationController
+    inflection_method :gender
+    
+    # t() will call method gender() from the current context
+    # to get the inflection token
+    def say_welcome
+      t('welcome')
+      # => "Dear Sir"
+    end
+  
+    # assuming that @gender is set somewhere
+    def gender
+      @gender || nil
+    end
+  
+  end
+  
+== Description
 
 You can choose different kinds (gender, title, person, time, author, etc.)
 of tokens to group them in a meaningful, semantical sets. That means you can
@@ -60,35 +107,6 @@ To understand how the I18n Inflector works please read {I18n Inflector documenta
 
 * <tt>sudo gem install i18n-inflector-rails</tt>
 
-== Synopsis
-
-  ### Translation data (usually loaded from YAML file):
-  
-  I18n.locale = :en
-  I18n.backend.store_translations 'en', :i18n => { :inflections => {
-                                                     :gender => {
-                                                       :f => 'female',
-                                                       :m => 'male',
-                                                       :n => 'neuter',
-                                                       :default => 'n' }}}
-  
-  I18n.backend.store_translations 'en', 'welcome' => 'Dear @{f:Lady|m:Sir|n:You|All}'
-  
-  ###
-  
-  class UsersController << ActiveController
-    inflection_method :gender
-    
-    # t() will call gender() from the current context
-    # to get the inflection token
-    # assuming that the method gender gets gender field
-    # from the database and converts it to symbol
-    def say_welcome
-      t('welcome')
-      # => "Dear Sir"
-    end
-  end
- 
 == Specs
 
 You can run RSpec examples both with
