@@ -16,14 +16,24 @@ interpolate additional inflection tokens present in translations.
 These tokens may appear in *patterns* which are contained within
 <tt>@{</tt> and <tt>}</tt> symbols.
 
-It's designed to be used in the environments where inflection is needed but
-translators should not use lambdas.
+== Why?
+
+It's intended to be used in a projects where tranlations are performed
+by many people, yet there is a need to substitute fragments of text
+depending on user's gender, person or other data.
+
+To achieve similar functionality lambdas can be used but including
+proc objects in translations may be considered as the unsafe idea.
+
+If you have a troop of happy translators that shouldn't have the
+ability to execute any code yet you need some simple inflection
+then you should use this module.
 
 == Synopsis
 
   translate('.welcome')
 
-and in YAML:
+===== In a YAML file:
 
   en:
     welcome:  "Dear @{f:Lady|m:Sir|n:You|All}"
@@ -42,10 +52,20 @@ and in YAML:
           woman:    @female
           default:  neuter
 
-and in a controller:
+===== In a controller:
 
-  class UsersController << ApplicationController
+  class ApplicationController < ActionController::Base
+    
     inflection_method :gender
+    
+    # assuming that @gender is set somewhere
+    def gender
+      @gender || nil
+    end
+  
+  end
+
+  class UsersController < ApplicationController
     
     # t() will call method gender() from the current context
     # to get the inflection token
@@ -54,36 +74,30 @@ and in a controller:
       # => "Dear Sir"
     end
   
-    # assuming that @gender is set somewhere
-    def gender
-      @gender || nil
-    end
-  
   end
   
 == Description
 
 You can choose different kinds (gender, title, person, time, author, etc.)
 of tokens to group them in a meaningful, semantical sets. That means you can
-apply Inflector to do simple inflection by a gender or a person, when some
+apply I18n Inflector to do simple inflection by a gender or a person, when some
 language requires it.
 
-To achieve similar functionality lambdas can be used but there might be
-some areas of appliance that including proc objects in translations
-is prohibited.
-
-If you have a troop of happy translators that shouldn't have the
-ability to execute any code yet you need some simple inflection
-then you can make use of this module.
-
-This module uses i18n-inflector[https://rubygems.org/gems/i18n-inflector]
-module which allows passing inflection options to the translate method.
-This module also adds +inflection_method+ clause that can be used
+This module adds +inflection_method+ clause that can be used
 in controllers and views. Using that clause makes it easy to register
 methods that will be called to obtain mentioned inflection options.
 
+This module uses i18n-inflector[https://rubygems.org/gems/i18n-inflector]
+module which allows passing inflection options to the translate method.
+You may find i18n-inflector default objects very helpful since they
+allow you to read inflection data in many different ways. You may, for
+example, use it to generate forms containing languages that are using inflection,
+all known inflection kinds or tokens assigned to them. To access default inflector
+bound to default I18n backend use:
+  I18n.inflector
+
 See {whole documentation}[http://rubydoc.info/gems/i18n-inflector-rails/] for more info about the usage.
-To understand how the I18n Inflector works please read {I18n Inflector documentation}[http://rubydoc.info/gems/i18n-inflector/].
+To understand how the I18n Inflector works please read {I18n Inflector documentation}[http://rubydoc.info/gems/i18n-inflector/file/README.rdoc].
 
 == Requirements
 
@@ -120,9 +134,14 @@ See {whole documentation}[http://rubydoc.info/gems/i18n-inflector-rails/] for mo
 
 See {I18n::Inflector::Rails} module documentation for detailed information.
 
+== Credits
+
+{Heise Media Polska}[http://www.heise-online.pl/] supports Free Software and has
+contributed to this plug-in by paying for me to eat when I've been coding.
+
 == License
 
-Copyright (c) 2010 by Paweł Wilk.
+Copyright (c) 2011 by Paweł Wilk.
 
 i18n-inflector-rails is copyrighted software owned by Paweł Wilk (pw@gnu.org).
 You may redistribute and/or modify this software as long as you

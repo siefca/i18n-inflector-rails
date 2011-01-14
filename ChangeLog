@@ -1,3 +1,15 @@
+commit 5cd0488a4c5e4bab9f9719162af599984e83d71f
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Fri Jan 14 13:04:43 2011 +0100
+
+    Adapted to i18n-inflector v.2.0.0
+
+commit 20c389bbb9fcae1d216a22b6df39aebd90210767
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Tue Jan 11 14:17:45 2011 +0100
+
+    Requires stable i18n-inflector
+
 commit 01e743e18f55b8734107124303ed191c60937f99
 Author: Paweł Wilk <siefca@gnu.org>
 Date:   Tue Jan 11 14:04:05 2011 +0100
