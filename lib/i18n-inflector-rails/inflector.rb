@@ -145,7 +145,7 @@ module I18n
         def translate(*args)
           test_locale = args.last.is_a?(Hash) ? args.last[:locale] : nil
           test_locale ||= I18n.locale
-          return super unless I18n::Inflector.locale?(test_locale)
+          return super unless I18n.backend.inflector.inflected_locale?(test_locale)
 
           # collect inflection variables that are present in this context
           subopts = t_prepare_inflection_options

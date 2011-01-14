@@ -41,7 +41,7 @@ Hoe.spec 'i18n-inflector-rails' do
   self.readme_file     = 'README.rdoc'
   self.history_file    = 'docs/HISTORY'
   
-  extra_deps          << ['i18n-inflector',   '~> 1.2.0'] <<
+  extra_deps          << ['i18n-inflector',   '~> 2.0.0'] <<
                          ['railties',         '~> 3.0.0'] <<
                          ['actionpack',       '~> 3.0.0']
   extra_dev_deps      << ['rspec',            '>= 2.3.0'] <<
