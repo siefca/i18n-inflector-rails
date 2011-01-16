@@ -143,21 +143,35 @@ module I18n
         # @return [String] the translated string with inflection patterns
         #   interpolated
         def translate(*args)
-          test_locale = args.last.is_a?(Hash) ? args.last[:locale] : nil
+          opts_present  = args.last.is_a?(Hash)
+          if opts_present
+            options = args.last
+            test_locale = options[:locale]
+          else
+            options = {}
+          end
           test_locale ||= I18n.locale
-          return super unless I18n.backend.inflector.inflected_locale?(test_locale)
+          inflector = I18n.backend.inflector
+
+          # use standard translate if the locale is not supported
+          return super unless inflector.inflected_locale?(test_locale)
+
+          # read switch
+          verifies = options.delete(:inflector_verify_methods)
+          verifies = verifies.nil? ? inflector.options.verify_methods : verifies
 
           # collect inflection variables that are present in this context
-          subopts = t_prepare_inflection_options
+          subopts  = t_prepare_inflection_options(inflector, verifies)
   
           # jump to original translate if no variables are present
           return super if subopts.empty?
-  
-          options = args.last.is_a?(Hash) ? args.pop : {}
+
+          # pass options
+          args.pop if opts_present
           args.push subopts.merge(options)
           super
         end
-        
+
         alias_method :t, :translate
   
         protected
@@ -165,10 +179,11 @@ module I18n
         # This method tries to read +i18n_inflector_methods+ available in the current context.
         # 
         # @return [Hash] the inflection options (<tt>kind => value</tt>)
-        def t_prepare_inflection_options
+        def t_prepare_inflection_options(inflector, verifies)
           subopts = {}
           i18n_inflector_methods.each_pair do |m, obj|
-            next if obj.nil?
+            next if obj.nil?                        # method registered but disabled from usage
+            next if (verifies && !respond_to?(m))   # verify_methods enabled
             value = method(m).call
             proca = obj[:proc]
             kind  = obj[:kind]

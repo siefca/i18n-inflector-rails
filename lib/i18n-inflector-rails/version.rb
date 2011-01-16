@@ -15,7 +15,7 @@ module I18n
       # @private
       EMAIL       = 'pw@gnu.org'
       # @private
-      VERSION     = '0.1.0'
+      VERSION     = '0.2.0'
       # @private
       NAME        = 'i18n-inflector-rails'
       # @private
@@ -23,7 +23,7 @@ module I18n
       # @private
       URL         = 'https://rubygems.org/gems/i18n-inflector-rails/'
       # @private
-      DESCRIPTION = 'This plug-in provides I18n Inflector module bindings for Rails.'
+      DESCRIPTION = 'Plug-in that provides I18n Inflector module integration with Rails.'
 
     end
   end

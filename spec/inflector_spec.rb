@@ -3,6 +3,22 @@ require 'spec_helper'
 class ApplicationController < ActionController::Base;       end
 class InflectedTranslateController < ApplicationController; end
 
+describe I18n.inflector.options.class do
+
+  context "instance I18n.inflector.options" do
+
+    it "should contain verify_methods switch" do
+      I18n.inflector.options.should respond_to :verify_methods
+    end
+
+    it "should have default value set to false" do
+      I18n.inflector.options.verify_methods.should == false
+    end
+
+  end
+
+end
+
 describe ApplicationController do
 
   before do
@@ -28,7 +44,7 @@ describe ApplicationController do
    I18n.backend.store_translations(:xx, 'to_be'   => 'Oh @{i:I am|you:You are|it:It is}')
 
   end
-  
+
   describe ".inflection_method" do
     
     before do
@@ -145,10 +161,17 @@ describe ApplicationController do
         inflection_method :person
       end
 
+      class NomethodController < InflectedTranslateController
+        inflection_method :nonexistent => :gender
+        def translate_male;     translate('welcome') end
+        def translate_male_opt; translate('welcome', :inflector_verify_methods => true) end
+      end
+
       @controller             = InflectedTranslateController.new
       @person_controller      = InflectedLambdedController.new
       @personprim_controller  = InflectedLambdedPrimController.new
-      
+      @nomethod_controller    = NomethodController.new
+
       @expected_hash = {:users_gender=>{:kind=>:gender, :proc=>nil},
                         :time=>{:kind=>:time, :proc=>nil}}
 
@@ -184,6 +207,16 @@ describe ApplicationController do
         InflectedLambdedPrimController.no_inflection_method :person
         @personprim_controller.translated_person.should == 'Oh '
         @person_controller.translated_person.should == 'Oh It is'
+      end
+
+      it "should raise exception when method does not exists" do
+        lambda{@nomethod_controller.translated_male}.should raise_error(NameError)
+      end
+
+      it "should not raise when method does not exists and verify_methods is enabled" do
+        lambda{@nomethod_controller.translate_male_opt}.should_not raise_error(NameError)
+        I18n.inflector.options.verify_methods = true
+        lambda{@nomethod_controller.translate_male}.should_not raise_error(NameError)
       end
 
     end

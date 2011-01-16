@@ -25,9 +25,9 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = '>= 1.3.5'
   s.specification_version = 3
 
-  s.add_dependency 'i18n-inflector',          '~> 2.0.0'
-  s.add_dependency 'railties',                '~> 3.0.0'
-  s.add_dependency 'actionpack',              '~> 3.0.0'
+  s.add_dependency 'i18n-inflector',          '~> 2.0'
+  s.add_dependency 'railties',                '~> 3.0'
+  s.add_dependency 'actionpack',              '~> 3.0'
   s.add_development_dependency 'rspec',       '>= 2.3.0'
   s.add_development_dependency 'yard',        '>= 1.0.7'
   s.add_development_dependency 'hoe-bundler', '>= 1.0.0'
