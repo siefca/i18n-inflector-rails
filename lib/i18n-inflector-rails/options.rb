@@ -15,7 +15,9 @@ module I18n
       # This module adds options to {I18n::Inflector::InflectionOptions}
       module AdditionalOptions
 
-        # When this is set tu +true+ then
+        attr_writer :verify_methods
+
+        # When this is set to +true+ then
         # inflection works a bit slower but
         # checks whether any method exists before
         # calling it. This switch is by default set
@@ -27,19 +29,18 @@ module I18n
         # 
         # Alternatively you can turn this locally,
         # for the specified translate call, by setting
-        # one of the passed options:
-        #   :inflector_verify_methods => true
-        # 
-        # @example Enabling methods verification
+        # <tt>:inflector_verify_methods</tt> option to +true+.
+        #    
+        # @example Globally enabling methods verification
         #   I18n.inflector.options.verify_methods = true
-        attr_writer :verify_methods
-
-        # test test
+        # @example Locally enabling methods verification
+        #   translate('welcome', :inflector_verify_methods => true)
         def verify_methods
           @verify_methods || false
         end 
 
-        # saaaaa
+        # This method resets inflector's
+        # switches to default values.
         def reset
           @verify_methods = false
           super
