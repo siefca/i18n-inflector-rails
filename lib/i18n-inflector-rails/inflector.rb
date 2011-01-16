@@ -181,6 +181,7 @@ module I18n
         # @return [Hash] the inflection options (<tt>kind => value</tt>)
         def t_prepare_inflection_options(inflector, verifies)
           subopts = {}
+          return subopts if (verifies && !respond_to?(:i18n_inflector_methods))
           i18n_inflector_methods.each_pair do |m, obj|
             next if obj.nil?                        # method registered but disabled from usage
             next if (verifies && !respond_to?(m))   # verify_methods enabled

@@ -3,8 +3,8 @@
 require 'i18n-inflector'
 require 'i18n-inflector-rails/version'
 require 'i18n-inflector-rails/errors'
+require 'i18n-inflector-rails/options'
 require 'i18n-inflector-rails/inflector'
-require 'i18n-inflector-rails/additional_options'
 
 I18n::Inflector::InflectionOptions.send(:include, I18n::Inflector::Rails::AdditionalOptions)
 

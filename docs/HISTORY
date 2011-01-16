@@ -1,9 +1,15 @@
+=== 0.2.0 / 2011-01-15
+
+* 1 major enhancement
+
+  * Added switch that causes any method from current context to be tested if is callable
+
 === 0.1.0 / 2011-01-11
 
 * 2 major enhancements
 
   * Compatible with Rails 3
-  * no_inflection_method added disable previously added method as not affecting translate()
+  * no_inflection_method added; it disables previously added method from using by translate()
 
 === 0.0.1 / 2011-01-02
 

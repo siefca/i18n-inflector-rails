@@ -15,6 +15,7 @@ docs/rdoc.css
 i18n-inflector-rails.gemspec
 init.rb
 lib/i18n-inflector-rails.rb
+lib/i18n-inflector-rails/additional_options.rb
 lib/i18n-inflector-rails/errors.rb
 lib/i18n-inflector-rails/inflector.rb
 lib/i18n-inflector-rails/railtie.rb

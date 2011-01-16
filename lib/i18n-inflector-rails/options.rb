@@ -34,12 +34,12 @@ module I18n
         #   I18n.inflector.options.verify_methods = true
         attr_writer :verify_methods
 
-        # @private
+        # test test
         def verify_methods
           @verify_methods || false
         end 
 
-        # @private
+        # saaaaa
         def reset
           @verify_methods = false
           super
