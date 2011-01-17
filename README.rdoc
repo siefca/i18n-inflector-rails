@@ -97,7 +97,7 @@ bound to default I18n backend use:
   I18n.inflector
 
 See {whole documentation}[http://rubydoc.info/gems/i18n-inflector-rails/] for more info about the usage.
-To understand how the I18n Inflector works please read {I18n Inflector documentation}[http://rubydoc.info/gems/i18n-inflector/file/README.rdoc].
+To understand how the I18n Inflector works please read {I18n Inflector documentation}[http://rubydoc.info/gems/i18n-inflector].
 
 == Requirements
 

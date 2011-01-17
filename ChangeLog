@@ -1,3 +1,21 @@
+commit 15e330e957f34579fa95aa2036f0c06fd168ab54
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 16 07:06:57 2011 +0100
+
+    Documentation updated
+
+commit e10a3bbbc25c053529976d82a0304819b7235213
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 16 07:02:19 2011 +0100
+
+    additional_options.rb renamed to options.rb, HISTORY updated
+
+commit 097cc40da6bd9edec7231dd96a7b3197c5133888
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 16 06:46:28 2011 +0100
+
+    Added conditional checking if method to be called exists, dependencies fixed
+
 commit 807a61dea750e19bd52fb350d34609e259557bbd
 Author: Paweł Wilk <siefca@gnu.org>
 Date:   Fri Jan 14 18:05:40 2011 +0100
