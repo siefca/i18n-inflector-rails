@@ -6,8 +6,6 @@ require 'i18n-inflector-rails/errors'
 require 'i18n-inflector-rails/options'
 require 'i18n-inflector-rails/inflector'
 
-I18n::Inflector::InflectionOptions.send(:include, I18n::Inflector::Rails::AdditionalOptions)
-
 if defined? Rails::Engine
 
   require 'i18n-inflector-rails/railtie'
