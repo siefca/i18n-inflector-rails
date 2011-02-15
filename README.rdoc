@@ -45,9 +45,9 @@ then this plug-in might help you.
           f:        "female"
           m:        "male"
           n:        "neuter"
-          @female:  @f
-          @male:    @m
-          @neuter:  @n
+          female:   @f
+          male:     @m
+          neuter:   @n
           man:      @male
           woman:    @female
           default:  n
