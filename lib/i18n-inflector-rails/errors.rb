@@ -9,7 +9,9 @@
 module I18n
   module Inflector
     module Rails
-      
+
+      # This class is for reporting bad inflection method
+      # in the given assignment.
       class BadInflectionMethod < I18n::ArgumentError
         attr_reader :assignment
         def initialize(assignment)
@@ -17,7 +19,7 @@ module I18n
           super "The given assignment is invalid: #{assignment}"
         end
       end
-      
+
     end
   end
 end

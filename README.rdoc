@@ -11,7 +11,7 @@
 == Summary
 
 This Rails plug-in contains bindings for the I18n Inflector module for Ruby's I18n.
-It overwrites the translate() method from Rails in a way that it will
+It overwrites the <tt>translate()</tt> method from Rails in a way that it will
 interpolate additional inflection tokens present in translations.
 These tokens may appear in *patterns* which are contained within
 <tt>@{</tt> and <tt>}</tt> symbols.
@@ -19,15 +19,15 @@ These tokens may appear in *patterns* which are contained within
 == Why?
 
 It's intended to be used in a projects where tranlations are performed
-by many people, yet there is a need to substitute fragments of text
-depending on user's gender, person or other data.
+by many people, yet there is a need to inflect sentences or words by
+user's gender, person or other data.
 
 To achieve similar functionality lambdas can be used but including
-proc objects in translations may be considered as the unsafe idea.
+Proc objects in translations may be considered unsafe.
 
 If you have a troop of happy translators that shouldn't have the
 ability to execute any code yet you need some simple inflection
-then you should use this module.
+then this plug-in might help you.
 
 == Synopsis
 
@@ -50,7 +50,7 @@ then you should use this module.
           @neuter:  @n
           man:      @male
           woman:    @female
-          default:  neuter
+          default:  n
 
 ===== In a controller:
 
@@ -78,26 +78,26 @@ then you should use this module.
   
 == Description
 
-You can choose different kinds (gender, title, person, time, author, etc.)
-of tokens to group them in a meaningful, semantical sets. That means you can
-apply I18n Inflector to do simple inflection by a gender or a person, when some
-language requires it.
+You can create your own kinds (gender, title, person, time, author, etc.)
+of tokens to group them in a meaningful, semantical sets.
 
-This module adds +inflection_method+ clause that can be used
-in controllers and views. Using that clause makes it easy to register
-methods that will be called to obtain mentioned inflection options.
+This plug-in adds {I18n::Inflector::Rails::ClassMethods#inflection_method inflection_method},
+{I18n::Inflector::Rails::ClassMethods#no_inflection_method no_inflection_method}
+and {I18n::Inflector::Rails::ClassMethods#no_inflection_method_for no_inflection_method_for} clauses
+that can be used in controllers and views. Using that clauses makes it easy to register
+methods that will be called to obtain certain inflection options.
+It is also possible to set up an inflection method for a so called
+strict kind commonly used in a so called named and complex patterns.
 
-This module uses i18n-inflector[https://rubygems.org/gems/i18n-inflector]
+This plug-in uses i18n-inflector[https://rubygems.org/gems/i18n-inflector]
 module which allows passing inflection options to the translate method.
-You may find i18n-inflector default objects very helpful since they
-allow you to read inflection data in many different ways. You may, for
-example, use it to generate forms containing languages that are using inflection,
-all known inflection kinds or tokens assigned to them. To access default inflector
-bound to default I18n backend use:
-  I18n.inflector
+You may find I18n Inflector's API and a default object very helpful since
+they allow you to read inflection data in many different ways. You might,
+for example, use it to generate forms containing lists of languages that are using
+inflection, or to view all known inflection kinds or tokens assigned to them.
 
-See {whole documentation}[http://rubydoc.info/gems/i18n-inflector-rails/] for more info about the usage.
-To understand how the I18n Inflector works please read {I18n Inflector documentation}[http://rubydoc.info/gems/i18n-inflector].
+To access the Inflector object bound to default I18n backend use:
+  I18n.inflector
 
 == Requirements
 
@@ -119,7 +119,7 @@ To understand how the I18n Inflector works please read {I18n Inflector documenta
 
 == Installation
 
-* <tt>sudo gem install i18n-inflector-rails</tt>
+* <tt>gem install i18n-inflector-rails</tt>
 
 == Specs
 
@@ -130,9 +130,16 @@ You can run RSpec examples both with
 
 == More information
 
-See {whole documentation}[http://rubydoc.info/gems/i18n-inflector-rails/] for more info about the usage.
+See {I18n::Inflector::Rails::ClassMethods} to learn how to use +inflection_method+ and +no_inflection_method+.
 
-See {I18n::Inflector::Rails} module documentation for detailed information.
+See {I18n::Inflector::Rails::InflectedTranslate} to learn about using the translation wrapper.
+
+See {I18n::Inflector::InflectionOptions} to know more about switches that can be used to control the engine.
+
+See the {whole documentation}[http://rubydoc.info/gems/i18n-inflector-rails/] for more information.
+
+To know how the basics and to learn more about Inflector that is used by this plug-in
+see {I18n Inflector documentation}[http://rubydoc.info/gems/i18n-inflector].
 
 == Credits
 
