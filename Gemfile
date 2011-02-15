@@ -2,7 +2,7 @@
 
 source :gemcutter
 
-gem "i18n-inflector", "~>2.0"
+gem "i18n-inflector", "~>2.3"
 gem "railties", "~>3.0"
 gem "actionpack", "~>3.0"
 

@@ -1,6 +1,6 @@
 # encoding: utf-8
 # -*- ruby -*-
- 
+
 $:.unshift File.join(File.dirname(__FILE__), "lib")
 
 require 'rubygems'
@@ -40,15 +40,15 @@ Hoe.spec 'i18n-inflector-rails' do
   self.rsync_args      << '--chmod=a+rX'
   self.readme_file     = 'README.rdoc'
   self.history_file    = 'docs/HISTORY'
-  
-  extra_deps          << ['i18n-inflector',   '~> 2.0'] <<
+
+  extra_deps          << ['i18n-inflector',   '~> 2.3'] <<
                          ['railties',         '~> 3.0'] <<
                          ['actionpack',       '~> 3.0']
   extra_dev_deps      << ['rspec',            '>= 2.3.0'] <<
                          ['yard',             '>= 0.6.4'] <<
                          ['bundler',          '>= 1.0.7'] <<
                          ['hoe-bundler',      '>= 1.0.0']
-  
+
   unless extra_dev_deps.flatten.include?('hoe-yard')
     extra_dev_deps << ['hoe-yard', '>= 0.1.2']
   end

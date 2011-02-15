@@ -1,6 +1,6 @@
 = Simple I18n Inflector for Rails
 
-<b>i18n-inflector-rails version <tt>0.1</tt></b> (<b><tt>Sexparty</tt></b>)
+<b>i18n-inflector-rails version <tt>1.0</tt></b> (<b><tt>Rain</tt></b>)
 
 
 

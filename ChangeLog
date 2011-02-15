@@ -1,3 +1,39 @@
+commit 46377c25557637e0f576a637b6abd203555989da
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Tue Feb 15 01:09:46 2011 +0100
+
+    Documentation updated
+
+commit f3419fd70560927aec82813e25d6dd4d33e6e629
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Tue Feb 15 01:09:07 2011 +0100
+
+    Specification updated
+
+commit 8c2907f62a9273a66bc5be0e90da92c0299d1e72
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Tue Feb 15 01:07:53 2011 +0100
+
+    ClassMethods and InflectedTranslate refactored
+    
+    - There are no additional Procs support, but Inflector's inflection methods may take arguments.
+    - Translation method now makes use of lazy methods feature of I18n Inflector.
+    - The internal hash is now i18n_inflector_kinds and it's indexed by kinds.
+    - Rewritten argument parsing for inflection_method.
+    - Added no_inflection_method_for (aka no_inflection_kind).
+
+commit aee2f6f484bee1812ecf8765b28d910adc8412e5
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Tue Feb 15 00:58:53 2011 +0100
+
+    New switches are now added by opening the InflectionOptions class, added new switch :lazy_methods
+
+commit 938f7bf971d8c00710b2202dc15e37929f8391dc
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Mon Jan 17 15:01:07 2011 +0100
+
+    Link in documentation fixed
+
 commit 15e330e957f34579fa95aa2036f0c06fd168ab54
 Author: Paweł Wilk <siefca@gnu.org>
 Date:   Sun Jan 16 07:06:57 2011 +0100
