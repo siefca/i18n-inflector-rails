@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = '>= 1.4.0'
   s.specification_version = 3
 
-  s.add_dependency 'i18n-inflector',          '~> 2.4'
+  s.add_dependency 'i18n-inflector',          '~> 2.5'
   s.add_dependency 'railties',                '~> 3.0'
   s.add_dependency 'actionpack',              '~> 3.0'
   s.add_development_dependency 'rspec',       '>= 2.3.0'
