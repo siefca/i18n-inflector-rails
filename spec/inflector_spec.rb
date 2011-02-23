@@ -316,7 +316,7 @@ describe ApplicationController do
       end
 
       it "should omit pattern interpolation when locale is not inflected" do
-        @strict_over_controller.trn('welcome', :locale => :ns).should == 'Dear!'
+        @strict_over_controller.trn('welcome', :locale => :ns).should == 'Dear !'
       end
 
     end
