@@ -313,16 +313,21 @@ module I18n
           # collect inflection variables that are present in this context
           subopts  = t_prepare_inflection_options(inflector, locale, options)
 
-          # jump to original translate if no variables are present
+          # jump to translate if no inflection options are present
           return super if subopts.empty?
 
-          # pass options
+          # pass options and call translate
           args.pop if opts_present
           args.push subopts.merge(options)
           super
         end
 
-        alias_method :t, :translate
+        # workaround for Ruby 1.8.x bug
+        if RUBY_VERSION.gsub(/\D/,'')[0..1].to_i < 19
+          def t(*args); translate(*args) end
+        else
+          alias_method :t, :translate
+        end
 
         protected
 

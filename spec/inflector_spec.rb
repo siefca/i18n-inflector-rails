@@ -57,6 +57,7 @@ describe ApplicationController do
                                                         :it  => 'It'},
                                        }   })
 
+   I18n.backend.store_translations(:ns, 'welcome'         => 'Dear @{f:Lady|m:Sir|n:You|All}!')
    I18n.backend.store_translations(:xx, 'welcome'         => 'Dear @{f:Lady|m:Sir|n:You|All}!')
    I18n.backend.store_translations(:xx, 'welcome_strict'  => 'Dear @gender{f:Lady|m:Sir|d:Dude|n:You|All}!')
    I18n.backend.store_translations(:xx, 'to_be'           => 'Oh @{i:I am|you:You are|it:It is}')
@@ -210,7 +211,7 @@ describe ApplicationController do
     before do
 
       class InflectedTranslateController
-        def trn(*args); translate(*args)  end
+        def trn(*args); t(*args)          end
         def t_male; t('welcome')          end
         def users_gender; :m              end
         def time
@@ -312,6 +313,10 @@ describe ApplicationController do
 
       it "should translate with the :inflector_lazy_methods switch turned off" do
         @strict_over_controller.trn('welcome', :inflector_lazy_methods => false).should == 'Dear Lady!'
+      end
+
+      it "should omit pattern interpolation when locale is not inflected" do
+        @strict_over_controller.trn('welcome', :locale => :ns).should == 'Dear!'
       end
 
     end
