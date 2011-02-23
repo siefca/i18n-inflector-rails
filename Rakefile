@@ -41,12 +41,12 @@ Hoe.spec 'i18n-inflector-rails' do
   self.readme_file     = 'README.rdoc'
   self.history_file    = 'docs/HISTORY'
 
-  extra_deps          << ['i18n-inflector',   '~> 2.3'] <<
+  extra_deps          << ['i18n-inflector',   '~> 2.4'] <<
                          ['railties',         '~> 3.0'] <<
                          ['actionpack',       '~> 3.0']
-  extra_dev_deps      << ['rspec',            '>= 2.3.0'] <<
-                         ['yard',             '>= 0.6.4'] <<
-                         ['bundler',          '>= 1.0.7'] <<
+  extra_dev_deps      << ['rspec',            '>= 2.3.0']   <<
+                         ['yard',             '>= 0.6.4']   <<
+                         ['bundler',          '>= 1.0.10']  <<
                          ['hoe-bundler',      '>= 1.0.0']
 
   unless extra_dev_deps.flatten.include?('hoe-yard')

@@ -12,7 +12,10 @@ if defined? Rails::Engine
 
 else
 
-  require 'action_controller' if not defined? ActionController::Base
+  if not defined? ActionController::Base
+    require 'active_support/core_ext/module/deprecation' # workaround for Rails missing require
+    require 'action_controller'
+  end
   require 'action_view'       if not defined? ActionView::Base
 
   ActionController::Base.send(:extend,  I18n::Inflector::Rails::ClassMethods)

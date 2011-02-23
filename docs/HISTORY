@@ -1,3 +1,9 @@
+=== 1.0.2 / 2011-02-23
+
+* major bugfixes
+
+  * Applied workaround for Ruby 1.8.x bug #734 in t() alias
+
 === 1.0.1 / 2011-02-14
 
 * major enhancements

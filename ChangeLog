@@ -1,3 +1,15 @@
+commit 9ea4414d555a719cabb3521f0da66652ec3ee782
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Wed Feb 23 01:08:44 2011 +0100
+
+    Applied workaround for Ruby 1.8.x bug #734 in t() alias
+
+commit 696d8f4ef50ae54fd0017a96a3750af56ce2cb56
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Tue Feb 15 14:50:13 2011 +0100
+
+    Release 1.0.1
+
 commit 5ee55b3ea54cfa86e541a47f27cbe321932c3820
 Author: Paweł Wilk <siefca@gnu.org>
 Date:   Tue Feb 15 01:38:13 2011 +0100
