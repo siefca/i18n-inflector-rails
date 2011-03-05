@@ -99,6 +99,33 @@ inflection, or to view all known inflection kinds or tokens assigned to them.
 To access the Inflector object bound to default I18n backend use:
   I18n.inflector
 
+== Note about YAML parsing
+
+The previous example is not compatible with Psych parser, which is used
+by Rails 3. There are two ways to solve that problem.
+
+First is to change a YAML file and replace any value that has
+special meaning with a symbol:
+
+  en:
+    i18n:
+      inflections:
+        gender:
+          f:        "female"
+          m:        "male"
+          n:        "neuter"
+          female:   :@f
+          male:     :@m
+          neuter:   :@n
+          man:      :@male
+          woman:    :@female
+          default:  :n
+  
+Second way is to use other parser by adding to +config/boot.rb+:
+
+  require 'yaml'
+  YAML::ENGINE.yamler = 'syck'
+
 == Requirements
 
 * i18n-inflector[https://rubygems.org/gems/i18n-inflector]
