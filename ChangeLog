@@ -1,3 +1,28 @@
+commit 7953d129789877ca248e7aa0771a587181853c4a
+Merge: 34f876d fff4d8c
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sat Jul 9 23:14:45 2011 +0200
+
+    Merge branch 'master' of github.com:siefca/i18n-inflector-rails
+
+commit 34f876d027f1fc49d8c63ec576bf4c8952c91d45
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sat Mar 5 14:30:04 2011 +0100
+
+    Added note about YAML parsing issues.
+
+commit 1aca5303d43bf300a8b802d6f69664f15522f699
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Wed Feb 23 23:23:33 2011 +0100
+
+    Release 1.0.3
+
+commit fff4d8c91fa4f9172b7336e12126ec43145f0cf6
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Wed Feb 23 23:23:33 2011 +0100
+
+    Release 1.0.3
+
 commit 1a7516470ddb82cde000188bb632e7e40166d594
 Author: Paweł Wilk <siefca@gnu.org>
 Date:   Wed Feb 23 23:23:04 2011 +0100

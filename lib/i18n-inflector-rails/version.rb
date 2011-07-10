@@ -15,7 +15,7 @@ module I18n
       # @private
       EMAIL       = 'pw@gnu.org'
       # @private
-      VERSION     = '1.0.3'
+      VERSION     = '1.0.4'
       # @private
       NAME        = 'i18n-inflector-rails'
       # @private
