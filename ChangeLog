@@ -1,3 +1,9 @@
+commit b344f7d41c640ca75a274fb635a96ad969ae5fe3
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jul 10 03:35:29 2011 +0200
+
+    Release 1.0.4
+
 commit 7953d129789877ca248e7aa0771a587181853c4a
 Merge: 34f876d fff4d8c
 Author: Paweł Wilk <siefca@gnu.org>
