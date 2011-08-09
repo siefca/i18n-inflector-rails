@@ -7,7 +7,9 @@ lib = File.expand_path('../lib/', __FILE__)
 $:.unshift lib unless $:.include?(lib)
 require 'i18n-inflector-rails/version'
 
-YAML::ENGINE.yamler = 'syck'
+if !defined?(YAML::ENGINE).nil? && YAML::ENGINE.respond_to?(:yamler)
+  YAML::ENGINE.yamler = 'syck'
+end
 
 Gem::Specification.new do |s|
   s.name         = I18n::Inflector::Rails::NAME

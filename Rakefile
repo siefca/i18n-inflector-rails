@@ -24,7 +24,9 @@ end
 
 ### Gem
 
-YAML::ENGINE.yamler = 'syck'
+if !defined?(YAML::ENGINE).nil? && YAML::ENGINE.respond_to?(:yamler)
+  YAML::ENGINE.yamler = 'syck'
+end
 
 Hoe.plugin :bundler
 Hoe.plugin :yard
