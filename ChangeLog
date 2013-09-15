@@ -1,3 +1,66 @@
+commit a4e4400ee04c89f1f8be5ee3cbaa458a8089b001
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Sep 15 12:30:59 2013 +0200
+
+    README updated
+
+commit 0761f02523839e77783d07b8f2953c4ea323d189
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Sep 15 12:28:24 2013 +0200
+
+    Updated license information, HISTORY and README
+
+commit 5a00ebf493b84da0bbac113c4c0b30a7893e799e
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Sep 15 12:18:46 2013 +0200
+
+    Release 1.0.7
+
+commit a5f8d2c23fd5f76ba05d91c84e8a208f9fdf5095
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Sep 15 12:18:29 2013 +0200
+
+    Updated Manifest.txt
+
+commit 8b114479f60eaa056f4aef47d9771262b062e03a
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Sep 15 12:13:59 2013 +0200
+
+    Gemfile.lock updated
+
+commit ddde726e9db44d42581df3ecfbca94278a1c0b86
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Sep 15 12:11:46 2013 +0200
+
+    Fixed RSpec deprecation warnings
+
+commit 1891e9c94228ea968855ab1b4e05c87a132fba6f
+Merge: 8f730f6 51e3e3c
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sat Sep 14 15:54:12 2013 -0700
+
+    Merge pull request #3 from dmilisic/master
+    
+    Rails 4 compatibility (thank you danijel!)
+
+commit 51e3e3cf9230386e9da0f415c28d3c888a0ab8f4
+Author: danijel <danijel.milisic@drap.hr>
+Date:   Mon Jul 15 14:11:40 2013 +0200
+
+    rails 4 compatibility
+
+commit 8f730f63c561f2efc00c5850068c1426a9aaee91
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Thu Oct 18 22:28:30 2012 +0200
+
+    README updated
+
+commit 3f83426716d24c6298e6796c9bbfd10e4fb373d0
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Tue Aug 9 17:20:48 2011 +0200
+
+    Release 1.0.6
+
 commit d0ef3e273d3cec561e252830aaf0eb44e0820807
 Author: Paweł Wilk <siefca@gnu.org>
 Date:   Mon Aug 8 00:14:01 2011 +0200
