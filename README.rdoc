@@ -173,7 +173,7 @@ see {I18n Inflector documentation}[http://rubydoc.info/gems/i18n-inflector].
 * {Heise Media Polska}[http://www.heise-online.pl/] supports Free Software and has
   contributed to this library by paying for my food during the coding.
 
-* Ryan Bates made this gem Rails 4 compatible. Thanks!
+* {Ryan Bates}[https://github.com/dmilisic/] made this package Rails 4 compatible. Thanks!
 
 == Donations
 
