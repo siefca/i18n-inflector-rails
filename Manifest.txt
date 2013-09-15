@@ -2,6 +2,7 @@
 .yardopts
 ChangeLog
 Gemfile
+Gemfile.lock
 LGPL-LICENSE
 Manifest.txt
 README.rdoc
