@@ -306,9 +306,9 @@ describe ApplicationController do
       end
 
       it "should not raise when method does not exists and verify_methods is enabled" do
-        lambda{@nomethod_controller.trn('welcome', :inflector_verify_methods => true)}.should_not raise_error(NameError)
+        lambda{@nomethod_controller.trn('welcome', :inflector_verify_methods => true)}.should_not raise_error
         I18n.inflector.options.verify_methods = true
-        lambda{@nomethod_controller.trn('welcome')}.should_not raise_error(NameError)
+        lambda{@nomethod_controller.trn('welcome')}.should_not raise_error
       end
 
       it "should translate with the :inflector_lazy_methods switch turned off" do
