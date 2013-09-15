@@ -1,3 +1,19 @@
+=== 1.0.7 / 2013-08-14
+
+* major enhancements
+
+  * Rails 4 compatibility
+
+* minor bugfixes
+
+  * RSpec deprecations removed
+
+=== 1.0.6 / 2011-08-09
+
+* minor bugfixes
+
+  * YAML parser workaround improved
+
 === 1.0.5 / 2011-08-07
 
 * minor bugfixes
