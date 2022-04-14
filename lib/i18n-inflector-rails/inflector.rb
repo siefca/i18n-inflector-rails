@@ -297,37 +297,24 @@ module I18n
         #   @return [String] the translated string with inflection patterns
         #     interpolated
         def translate(*args)
-          opts_present  = args.last.is_a?(Hash)
-          if opts_present
-            options = args.last
-            test_locale = options[:locale]
-          else
-            options = {}
-          end
-          test_locale ||= I18n.locale
-          inflector = I18n.backend.inflector
+          key         = args[0]
+          options     = args[1].is_a?(Hash) ? args[1] : {}
+          test_locale = options[:locale] || I18n.locale
+          inflector   = I18n.backend.inflector
 
           # return immediately if the locale is not supported
-          return super unless inflector.inflected_locale?(test_locale)
+          return super(key, **options) unless inflector.inflected_locale?(test_locale)
 
           # collect inflection variables that are present in this context
           subopts  = t_prepare_inflection_options(inflector, locale, options)
 
           # jump to translate if no inflection options are present
-          return super if subopts.empty?
+          return super(key, **options) if subopts.empty?
 
-          # pass options and call translate
-          args.pop if opts_present
-          args.push subopts.merge(options)
-          super
+          super(key, **subopts.merge(options))
         end
 
-        # workaround for Ruby 1.8.x bug
-        if RUBY_VERSION.gsub(/\D/,'')[0..1].to_i < 19
-          def t(*args); translate(*args) end
-        else
-          alias_method :t, :translate
-        end
+        alias_method :t, :translate
 
         protected
 

@@ -51,8 +51,9 @@ Hoe.spec 'i18n-inflector-rails' do
   extra_dev_deps      << ['rspec',            '>= 2.6.0']   <<
                          ['yard',             '>= 0.7.2']   <<
                          ['rdoc',             '>= 3.8.0']   <<
-                         ['bundler',          '>= 1.0.10']  <<
-                         ['hoe-bundler',      '>= 1.1.0']
+                         ['bundler',          '>= 2.3.0']  <<
+                         ['hoe-bundler',      '>= 1.1.0']  <<
+                         ['byebug',           '~> 11.1.3']
 
   unless extra_dev_deps.flatten.include?('hoe-yard')
     extra_dev_deps << ['hoe-yard', '>= 0.1.2']

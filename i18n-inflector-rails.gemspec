@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.rubyforge_project = '[none]'
   s.required_rubygems_version = '>= 1.4.0'
+  s.required_ruby_version = '>= 3'
   s.specification_version = 3
 
   s.add_dependency 'i18n-inflector',          '~> 2.6'
@@ -34,7 +35,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'actionpack',              '>= 3.0.0'
   s.add_development_dependency 'rspec',       '>= 2.6.0'
   s.add_development_dependency 'yard',        '>= 0.7.2'
-  s.add_development_dependency 'bundler',     '>= 1.0.10'
+  s.add_development_dependency 'bundler',     '>= 2.3.0'
   s.add_development_dependency 'hoe-bundler', '>= 1.1.0'
   s.add_development_dependency 'hoe-yard',    '>= 0.1.2'
+  s.add_development_dependency 'byebug',      '~> 11.1.3'
 end
