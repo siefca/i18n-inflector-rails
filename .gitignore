@@ -14,3 +14,4 @@ ABOUT-NLS
 *.gem
 doc
 pkg
+.byebug_history

@@ -8,12 +8,13 @@ gem "i18n-inflector", "~>2.6"
 gem "railties", ">=3.0.0"
 gem "actionpack", ">=3.0.0"
 
-gem "hoe-yard", ">=0.1.2", :group => [:development, :test]
+gem "hoe-yard", ">=0.1.3", :group => [:development, :test]
 gem "rspec", ">=2.6.0", :group => [:development, :test]
 gem "yard", ">=0.7.2", :group => [:development, :test]
 gem "rdoc", ">=3.8.0", :group => [:development, :test]
-gem "bundler", ">=1.0.10", :group => [:development, :test]
+gem "bundler", ">=2.3.0", :group => [:development, :test]
 gem "hoe-bundler", ">=1.1.0", :group => [:development, :test]
+gem "byebug", "~>11.1.3", :group => [:development, :test]
 gem "hoe", "~>2.16", :group => [:development, :test]
 
 # vim: syntax=ruby
