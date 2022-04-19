@@ -187,7 +187,7 @@ Or you can endorse my skills on LinkedIn:
 
 == License
 
-Copyright (c) 2011-2013 by Paweł Wilk.
+Copyright (c) 2011-2022 by Paweł Wilk.
 
 i18n-inflector-rails is copyrighted software owned by Paweł Wilk (pw@gnu.org).
 You may redistribute and/or modify this software as long as you
