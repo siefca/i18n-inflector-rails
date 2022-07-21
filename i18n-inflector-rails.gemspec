@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.rubyforge_project = '[none]'
   s.required_rubygems_version = '>= 1.4.0'
-  s.required_ruby_version = '>= 3'
+  s.required_ruby_version = '>= 2.7'
   s.specification_version = 3
 
   s.add_dependency 'i18n-inflector',          '~> 2.6'
