@@ -175,19 +175,9 @@ see {I18n Inflector documentation}[http://rubydoc.info/gems/i18n-inflector].
 
 * {Ryan Bates}[https://github.com/dmilisic/] made this package Rails 4 compatible. Thanks!
 
-== Donations
-
-If you like my work you can send me some BitCoins:
-
-* <tt>13wZbBjs6yQQuAb3zjfHubQSyer2cLAYzH</tt>
-
-Or you can endorse my skills on LinkedIn:
-
-* {pl.linkedin.com/in/pwilk}[http://www.linkedin.com/profile/view?id=4251568#profile-skills]
-
 == License
 
-Copyright (c) 2011-2022 by Paweł Wilk.
+Copyright (c) 2011-2023 by Paweł Wilk.
 
 i18n-inflector-rails is copyrighted software owned by Paweł Wilk (pw@gnu.org).
 You may redistribute and/or modify this software as long as you
