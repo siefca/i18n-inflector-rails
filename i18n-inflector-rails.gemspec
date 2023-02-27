@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.homepage     = I18n::Inflector::Rails::URL
   s.summary      = I18n::Inflector::Rails::SUMMARY
   s.description  = I18n::Inflector::Rails::DESCRIPTION
+  s.licenses     = I18n::Inflector::Rails::LICENSES
 
   s.files        = Dir.glob("{ci,lib,spec,docs}/**/**") + %w(init.rb Gemfile .rspec .yardopts README.rdoc LGPL-LICENSE ChangeLog Manifest.txt)
   s.extra_rdoc_files = ["README.rdoc", "docs/HISTORY", "docs/LGPL-LICENSE", "docs/COPYING"]

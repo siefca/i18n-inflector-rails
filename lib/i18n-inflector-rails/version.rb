@@ -24,6 +24,8 @@ module I18n
       URL         = 'https://rubygems.org/gems/i18n-inflector-rails/'
       # @private
       DESCRIPTION = 'Plug-in that provides I18n Inflector module integration with Rails.'
+      # @private
+      LICENSES    = ['LGPL-3.0-or-later']
 
     end
   end
