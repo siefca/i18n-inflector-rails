@@ -1,7 +1,7 @@
 # encoding: utf-8
 #
 # Author::    Paweł Wilk (mailto:pw@gnu.org)
-# Copyright:: (c) 2011-2013 by by Paweł Wilk
+# Copyright:: (c) 2011-2023 by by Paweł Wilk
 # License::   This program is licensed under the terms of {file:LGPL-LICENSE GNU Lesser General Public License} or {file:COPYING Ruby License}.
 # 
 # This file contains I18n::Inflector::Rails::AdditionalOptions module,
